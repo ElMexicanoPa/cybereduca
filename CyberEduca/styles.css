@@ -1,0 +1,605 @@
+/* =============================================
+   RESET Y BASE
+   Elimina márgenes y paddings por defecto
+   del navegador para partir desde cero.
+============================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Variables globales de color y espaciado.
+   Cambiar aquí afecta todo el sitio. */
+:root {
+  --bg: #050d1a;           /* Fondo principal (azul muy oscuro) */
+  --bg2: #0a1628;          /* Fondo de secciones alternas */
+  --bg3: #0f1f3d;          /* Fondo del toast y elementos flotantes */
+  --neon: #00ff88;         /* Verde neón principal */
+  --neon2: #00d4ff;        /* Azul cian para acentos secundarios */
+  --blue: #1a6bff;         /* Azul eléctrico (reservado para uso futuro) */
+  --text: #e2e8f0;         /* Texto principal (blanco suave) */
+  --text-muted: #8892a4;   /* Texto secundario / descripciones */
+  --border: rgba(0,255,136,0.15);       /* Borde sutil con tono neón */
+  --card-bg: rgba(255,255,255,0.04);    /* Fondo de tarjetas semitransparente */
+  --card-border: rgba(255,255,255,0.08); /* Borde de tarjetas */
+  --radius: 16px;          /* Radio de borde estándar para tarjetas */
+  --shadow: 0 8px 32px rgba(0,0,0,0.4); /* Sombra estándar */
+}
+
+/* Scroll suave al hacer clic en los links del menú */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden; /* Evita scroll horizontal no deseado */
+}
+
+/* Contenedor centrado con ancho máximo */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* Clase utilitaria para texto en color neón */
+.neon { color: var(--neon); }
+
+/* Oculta elementos sin eliminarlos del DOM */
+.hidden { display: none !important; }
+
+/* =============================================
+   NAVBAR
+   Fijo en la parte superior, con efecto de
+   desenfoque (glassmorphism). Se oscurece más
+   al hacer scroll (clase .scrolled via JS).
+============================================= */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(5,13,26,0.85);
+  backdrop-filter: blur(20px); /* Efecto vidrio esmerilado */
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s;
+}
+#navbar.scrolled { background: rgba(5,13,26,0.98); }
+
+.nav-container {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 70px;
+}
+
+/* Logo con fuente Orbitron para look tecnológico */
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem; font-weight: 900;
+  color: #fff; text-decoration: none;
+  display: flex; align-items: center; gap: 8px;
+}
+.logo i { color: var(--neon); }
+.logo span { color: var(--neon); }
+
+.nav-links { list-style: none; display: flex; gap: 8px; }
+.nav-links a {
+  color: var(--text-muted); text-decoration: none;
+  padding: 8px 14px; border-radius: 8px;
+  font-size: 0.9rem; font-weight: 500;
+  transition: all 0.2s;
+}
+.nav-links a:hover { color: var(--neon); background: rgba(0,255,136,0.08); }
+
+/* Botón hamburguesa, solo visible en móvil */
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--text); border-radius: 2px; transition: all 0.3s;
+}
+
+/* =============================================
+   SECCIONES GENERALES
+   .section es el espaciado base.
+   .dark-section cambia el fondo para alternar
+   visualmente entre secciones.
+============================================= */
+.section { padding: 100px 0; }
+.dark-section { background: var(--bg2); }
+
+/* Encabezado centrado reutilizable en todas las secciones */
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-tag {
+  display: inline-block;
+  background: rgba(0,255,136,0.1);
+  color: var(--neon); border: 1px solid rgba(0,255,136,0.3);
+  padding: 6px 16px; border-radius: 20px;
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; margin-bottom: 16px;
+}
+/* clamp() hace el título responsivo sin media queries */
+.section-header h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 12px; }
+.section-header p { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+
+/* =============================================
+   BOTONES
+   Dos variantes: primario (relleno neón)
+   y outline (borde neón, fondo transparente).
+============================================= */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--neon), #00c96e);
+  color: #050d1a; font-weight: 700; font-size: 0.95rem;
+  padding: 14px 28px; border-radius: 10px; border: none;
+  cursor: pointer; text-decoration: none;
+  transition: all 0.3s; box-shadow: 0 4px 20px rgba(0,255,136,0.3);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,255,136,0.5); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--neon);
+  border: 1.5px solid var(--neon); font-weight: 600; font-size: 0.95rem;
+  padding: 13px 28px; border-radius: 10px;
+  cursor: pointer; text-decoration: none; transition: all 0.3s;
+}
+.btn-outline:hover { background: rgba(0,255,136,0.1); transform: translateY(-2px); }
+.btn-outline:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+/* Hace que el botón ocupe todo el ancho del contenedor */
+.full-width { width: 100%; justify-content: center; }
+
+/* =============================================
+   HERO / SECCIÓN INICIO
+   Ocupa toda la pantalla. Usa flexbox para
+   poner el texto a la izquierda y el globo
+   animado a la derecha.
+============================================= */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  position: relative; overflow: hidden; padding: 100px 24px 60px;
+  max-width: 1200px; margin: 0 auto;
+}
+
+/* Fondo con gradientes radiales decorativos (posición fija para efecto parallax) */
+.hero-bg {
+  position: fixed; inset: 0; z-index: -1;
+  background: radial-gradient(ellipse at 20% 50%, rgba(0,255,136,0.06) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(0,212,255,0.06) 0%, transparent 60%),
+              var(--bg);
+}
+
+.hero-content { flex: 1; max-width: 600px; }
+
+/* Etiqueta pequeña sobre el título principal */
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3);
+  color: var(--neon); padding: 8px 16px; border-radius: 20px;
+  font-size: 0.85rem; font-weight: 600; margin-bottom: 24px;
+  animation: fadeInUp 0.6s ease;
+}
+
+/* Título principal con tamaño fluido */
+.hero-content h1 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 800; line-height: 1.15; margin-bottom: 20px;
+  animation: fadeInUp 0.7s ease;
+}
+
+.hero-content p {
+  color: var(--text-muted); font-size: 1.1rem;
+  margin-bottom: 36px; animation: fadeInUp 0.8s ease;
+}
+
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; animation: fadeInUp 0.9s ease; }
+
+/* Estadísticas de impacto debajo de los botones */
+.hero-stats { display: flex; gap: 32px; flex-wrap: wrap; animation: fadeInUp 1s ease; }
+.stat { display: flex; flex-direction: column; }
+.stat-num {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem; font-weight: 700; color: var(--neon);
+}
+.stat span:last-child { font-size: 0.8rem; color: var(--text-muted); }
+
+/* =============================================
+   GLOBO ANIMADO (solo CSS, sin imágenes)
+   Tres anillos que giran a distintas velocidades
+   con puntos orbitando alrededor.
+============================================= */
+.hero-visual {
+  flex: 1; display: flex; justify-content: center; align-items: center;
+  animation: fadeIn 1.2s ease;
+}
+
+.cyber-globe {
+  position: relative; width: 320px; height: 320px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.globe-ring {
+  position: absolute; border-radius: 50%;
+  border: 1px solid rgba(0,255,136,0.2);
+  animation: spin linear infinite;
+}
+/* Cada anillo tiene velocidad y dirección diferente */
+.r1 { width: 320px; height: 320px; animation-duration: 20s; border-color: rgba(0,255,136,0.15); }
+.r2 { width: 240px; height: 240px; animation-duration: 15s; animation-direction: reverse; border-color: rgba(0,212,255,0.2); }
+.r3 { width: 160px; height: 160px; animation-duration: 10s; border-color: rgba(0,255,136,0.3); }
+
+/* Centro del globo con efecto de brillo */
+.globe-core {
+  width: 90px; height: 90px; border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0,255,136,0.2), rgba(0,212,255,0.2));
+  border: 2px solid var(--neon);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; color: var(--neon);
+  box-shadow: 0 0 40px rgba(0,255,136,0.3), inset 0 0 20px rgba(0,255,136,0.1);
+  z-index: 2;
+}
+
+/* Puntos que se mueven alrededor del globo */
+.orbit-dot {
+  position: absolute; width: 10px; height: 10px;
+  border-radius: 50%; background: var(--neon);
+  box-shadow: 0 0 10px var(--neon);
+}
+.d1 { top: 10px; left: 50%; animation: orbitY 20s linear infinite; }
+.d2 { top: 50%; right: 10px; animation: orbitX 15s linear infinite reverse; }
+.d3 { bottom: 10px; left: 30%; animation: orbitY 10s linear infinite reverse; }
+
+/* Keyframes de las animaciones del globo */
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes orbitY { 0%,100% { transform: translateY(0); } 50% { transform: translateY(300px); } }
+@keyframes orbitX { 0%,100% { transform: translateX(0); } 50% { transform: translateX(-300px); } }
+
+/* Animaciones de entrada usadas en varias secciones */
+@keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+/* =============================================
+   SECCIÓN: ¿QUÉ ES LA CIBERSEGURIDAD?
+   Grid de dos columnas: texto a la izquierda,
+   tarjetas informativas a la derecha.
+============================================= */
+.que-es-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.que-es-text p { color: var(--text-muted); margin-bottom: 16px; font-size: 1.05rem; }
+.que-es-text strong { color: var(--neon); }
+
+/* Los 3 pilares CIA mostrados como chips */
+.pillars { display: flex; gap: 16px; margin-top: 28px; flex-wrap: wrap; }
+.pillar {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(0,255,136,0.08); border: 1px solid rgba(0,255,136,0.2);
+  padding: 10px 16px; border-radius: 10px; font-size: 0.9rem; font-weight: 600;
+}
+.pillar i { color: var(--neon); }
+
+/* Grid 2x2 de tarjetas informativas */
+.que-es-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.info-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: var(--radius); padding: 20px;
+  transition: all 0.3s;
+}
+.info-card:hover { border-color: rgba(0,255,136,0.3); transform: translateY(-4px); }
+.info-card i { font-size: 1.5rem; color: var(--neon2); margin-bottom: 10px; display: block; }
+.info-card h4 { font-size: 0.95rem; margin-bottom: 6px; }
+.info-card p { font-size: 0.85rem; color: var(--text-muted); }
+
+/* =============================================
+   SECCIÓN: AMENAZAS COMUNES
+   Grid responsivo de tarjetas.
+   Cada tarjeta tiene una línea de color en la
+   parte superior que aparece al hacer hover.
+============================================= */
+.threats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+
+.threat-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: var(--radius); padding: 28px;
+  transition: all 0.3s; position: relative; overflow: hidden;
+}
+
+/* Línea de acento superior que se expande al hacer hover */
+.threat-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--neon), var(--neon2));
+  transform: scaleX(0); transition: transform 0.3s; transform-origin: left;
+}
+.threat-card:hover::before { transform: scaleX(1); }
+.threat-card:hover { border-color: rgba(0,255,136,0.25); transform: translateY(-4px); box-shadow: var(--shadow); }
+
+/* Ícono de cada amenaza con color propio */
+.threat-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; margin-bottom: 16px;
+}
+.phishing  { background: rgba(255,100,100,0.15); color: #ff6464; }
+.malware   { background: rgba(255,165,0,0.15);   color: #ffa500; }
+.ransomware{ background: rgba(255,50,50,0.15);   color: #ff3232; }
+.robo      { background: rgba(150,100,255,0.15); color: #9664ff; }
+.spyware   { background: rgba(0,212,255,0.15);   color: var(--neon2); }
+
+.threat-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+.threat-card > p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px; }
+
+/* Contenido expandible, oculto por defecto */
+.threat-details { display: none; margin-top: 16px; }
+.threat-details.open { display: block; animation: fadeInUp 0.3s ease; }
+
+.detail-block { margin-bottom: 16px; }
+.detail-block h4 { font-size: 0.85rem; color: var(--neon); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.detail-block p { font-size: 0.85rem; color: var(--text-muted); }
+.detail-block ul { list-style: none; }
+.detail-block ul li { font-size: 0.85rem; color: var(--text-muted); padding: 3px 0; }
+.detail-block ul li::before { content: '→ '; color: var(--neon); }
+
+/* Botón para expandir/colapsar el detalle de cada amenaza */
+.expand-btn {
+  background: none; border: 1px solid var(--card-border);
+  color: var(--text-muted); padding: 8px 16px; border-radius: 8px;
+  cursor: pointer; font-size: 0.85rem; transition: all 0.2s;
+  display: flex; align-items: center; gap: 6px;
+}
+.expand-btn:hover { border-color: var(--neon); color: var(--neon); }
+/* El ícono rota 180° cuando el detalle está abierto */
+.expand-btn i { transition: transform 0.3s; }
+.expand-btn.open i { transform: rotate(180deg); }
+
+/* =============================================
+   SECCIÓN: PROTECCIÓN DIGITAL
+   Grid de tarjetas numeradas.
+   El número grande es decorativo (muy opaco).
+============================================= */
+.protection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+
+.protection-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: var(--radius); padding: 28px; position: relative;
+  transition: all 0.3s; overflow: hidden;
+}
+.protection-card:hover { border-color: rgba(0,255,136,0.3); transform: translateY(-4px); }
+
+/* Número decorativo en la esquina superior derecha */
+.prot-num {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem; font-weight: 900;
+  color: rgba(0,255,136,0.08); /* Muy transparente, solo decorativo */
+  position: absolute; top: 16px; right: 20px; line-height: 1;
+}
+.prot-icon { font-size: 1.8rem; color: var(--neon); margin-bottom: 16px; }
+.protection-card h3 { font-size: 1rem; margin-bottom: 10px; }
+.protection-card p { font-size: 0.88rem; color: var(--text-muted); }
+
+/* Ejemplo visual de contraseña débil vs fuerte */
+.password-example { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+.bad, .good {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 12px; border-radius: 6px; font-size: 0.82rem; font-family: monospace;
+}
+.bad  { background: rgba(255,80,80,0.1); color: #ff8080; }
+.good { background: rgba(0,255,136,0.1); color: var(--neon); }
+
+/* =============================================
+   SECCIÓN: QUIZ INTERACTIVO
+   Las preguntas se muestran de una en una.
+   La barra de progreso avanza con cada respuesta.
+============================================= */
+.quiz-container {
+  max-width: 700px; margin: 0 auto;
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: 20px; padding: 40px;
+}
+
+/* Barra de progreso */
+.quiz-progress { margin-bottom: 32px; }
+.progress-bar {
+  height: 6px; background: rgba(255,255,255,0.08);
+  border-radius: 3px; margin-bottom: 10px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; background: linear-gradient(90deg, var(--neon), var(--neon2));
+  border-radius: 3px; transition: width 0.4s ease;
+  width: 16.66%; /* Empieza en 1/6 del total */
+}
+#progressText { font-size: 0.85rem; color: var(--text-muted); }
+
+/* Solo la pregunta activa es visible */
+.question { display: none; }
+.question.active { display: block; animation: fadeInUp 0.3s ease; }
+.question h3 { font-size: 1.15rem; margin-bottom: 24px; line-height: 1.5; }
+
+.options { display: flex; flex-direction: column; gap: 12px; }
+.option-btn {
+  background: rgba(255,255,255,0.04); border: 1.5px solid var(--card-border);
+  color: var(--text); padding: 14px 20px; border-radius: 10px;
+  text-align: left; cursor: pointer; font-size: 0.95rem; transition: all 0.2s;
+}
+.option-btn:hover:not(:disabled) { border-color: rgba(0,255,136,0.4); background: rgba(0,255,136,0.06); }
+/* Feedback visual inmediato al responder */
+.option-btn.correct { border-color: var(--neon); background: rgba(0,255,136,0.12); color: var(--neon); }
+.option-btn.wrong   { border-color: #ff5050; background: rgba(255,80,80,0.1); color: #ff8080; }
+.option-btn:disabled { cursor: not-allowed; }
+
+.quiz-nav { display: flex; justify-content: space-between; margin-top: 28px; gap: 12px; }
+
+/* Pantalla de resultado final */
+.quiz-result { text-align: center; padding: 20px 0; animation: fadeInUp 0.4s ease; }
+.result-icon { font-size: 4rem; margin-bottom: 16px; }
+.quiz-result h3 { font-size: 1.5rem; margin-bottom: 12px; }
+.quiz-result p { color: var(--text-muted); margin-bottom: 20px; }
+.result-score {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem; font-weight: 900; color: var(--neon); margin-bottom: 24px;
+}
+
+/* =============================================
+   SECCIÓN: TIPS Y NOVEDADES
+   Grid de 3 columnas. La tarjeta "featured"
+   ocupa todo el ancho (span 3).
+============================================= */
+.tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.tip-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: var(--radius); padding: 28px; transition: all 0.3s;
+}
+.tip-card:hover { border-color: rgba(0,255,136,0.25); transform: translateY(-4px); }
+
+/* Tarjeta destacada que ocupa todo el ancho del grid */
+.tip-card.featured {
+  grid-column: span 3;
+  background: linear-gradient(135deg, rgba(0,255,136,0.08), rgba(0,212,255,0.05));
+  border-color: rgba(0,255,136,0.25);
+  display: flex; flex-direction: column;
+}
+
+.tip-tag {
+  display: inline-block; background: rgba(0,255,136,0.1);
+  color: var(--neon); border: 1px solid rgba(0,255,136,0.25);
+  padding: 4px 12px; border-radius: 20px; font-size: 0.75rem;
+  font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+  margin-bottom: 14px; width: fit-content;
+}
+.tip-icon { font-size: 1.8rem; color: var(--neon2); margin-bottom: 12px; display: block; }
+.tip-card h3 { font-size: 1rem; margin-bottom: 10px; }
+.tip-card p { font-size: 0.88rem; color: var(--text-muted); }
+
+/* =============================================
+   SECCIÓN: CONTACTO
+   Dos columnas: info a la izquierda,
+   formulario a la derecha.
+============================================= */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: start; }
+
+.contact-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 28px; }
+.contact-item i { font-size: 1.3rem; color: var(--neon); margin-top: 2px; }
+.contact-item h4 { font-size: 0.9rem; margin-bottom: 4px; }
+.contact-item p { font-size: 0.88rem; color: var(--text-muted); }
+
+/* Iconos de redes sociales */
+.social-links { display: flex; gap: 12px; margin-top: 8px; }
+.social-links a {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted); text-decoration: none; font-size: 1rem; transition: all 0.2s;
+}
+.social-links a:hover { border-color: var(--neon); color: var(--neon); background: rgba(0,255,136,0.08); }
+
+/* Campos del formulario con estilo oscuro */
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+.form-group input, .form-group textarea, .form-group select {
+  background: rgba(255,255,255,0.04); border: 1.5px solid var(--card-border);
+  color: var(--text); padding: 12px 16px; border-radius: 10px;
+  font-size: 0.95rem; font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s; outline: none;
+}
+/* Borde neón al enfocar el campo */
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+  border-color: rgba(0,255,136,0.5);
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-muted); }
+.form-group select option { background: var(--bg2); }
+.form-group textarea { resize: vertical; min-height: 100px; }
+
+/* Mensaje de éxito tras enviar el formulario */
+.form-success {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3);
+  color: var(--neon); padding: 14px 18px; border-radius: 10px; font-size: 0.9rem;
+}
+
+/* =============================================
+   FOOTER
+   Cuatro columnas con logo, links y newsletter.
+============================================= */
+footer { background: var(--bg); border-top: 1px solid var(--border); padding: 60px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 48px; }
+.footer-brand .logo { margin-bottom: 16px; }
+.footer-brand p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px; }
+.footer-links h4 { font-size: 0.9rem; margin-bottom: 16px; color: var(--text); }
+.footer-links ul { list-style: none; }
+.footer-links ul li { margin-bottom: 10px; }
+.footer-links ul li a { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+.footer-links ul li a:hover { color: var(--neon); }
+.footer-newsletter h4 { font-size: 0.9rem; margin-bottom: 10px; }
+.footer-newsletter p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px; }
+.newsletter-form { display: flex; gap: 8px; }
+.newsletter-form input {
+  flex: 1; background: var(--card-bg); border: 1px solid var(--card-border);
+  color: var(--text); padding: 10px 14px; border-radius: 8px; font-size: 0.88rem; outline: none;
+}
+.newsletter-form input:focus { border-color: rgba(0,255,136,0.4); }
+.newsletter-form .btn-primary { padding: 10px 18px; font-size: 0.85rem; }
+
+/* Barra inferior del footer */
+.footer-bottom {
+  border-top: 1px solid var(--border); padding: 20px 0;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.85rem; color: var(--text-muted); flex-wrap: wrap; gap: 8px;
+}
+
+/* =============================================
+   TOAST (notificación flotante)
+   Aparece en la esquina inferior derecha
+   para dar feedback rápido al usuario.
+============================================= */
+.toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+  background: var(--bg3); border: 1px solid var(--neon);
+  color: var(--text); padding: 14px 20px; border-radius: 10px;
+  font-size: 0.9rem; box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  animation: fadeInUp 0.3s ease;
+}
+
+/* =============================================
+   RESPONSIVE
+   Breakpoints para tablet (1024px),
+   móvil (768px) y móvil pequeño (480px).
+============================================= */
+@media (max-width: 1024px) {
+  .que-es-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .tips-grid { grid-template-columns: 1fr 1fr; }
+  .tip-card.featured { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+  /* El menú se oculta y se muestra con el botón hamburguesa */
+  .nav-links {
+    display: none; flex-direction: column;
+    position: absolute; top: 70px; left: 0; right: 0;
+    background: rgba(5,13,26,0.98); padding: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links.open { display: flex; }
+  .hamburger { display: flex; }
+
+  /* Hero en columna en móvil */
+  .hero { flex-direction: column; text-align: center; padding-top: 120px; }
+  .hero-btns { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .hero-visual { margin-top: 40px; }
+
+  /* Globo más pequeño en móvil */
+  .cyber-globe { width: 220px; height: 220px; }
+  .r1 { width: 220px; height: 220px; }
+  .r2 { width: 160px; height: 160px; }
+  .r3 { width: 100px; height: 100px; }
+  .globe-core { width: 60px; height: 60px; font-size: 1.4rem; }
+
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .tips-grid { grid-template-columns: 1fr; }
+  .tip-card.featured { grid-column: span 1; }
+  .que-es-cards { grid-template-columns: 1fr; }
+  .quiz-container { padding: 24px; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 70px 0; }
+  .hero-stats { gap: 20px; }
+  .protection-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}

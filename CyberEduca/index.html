@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberEduca - Educación en Ciberseguridad</title>
+
+  <!-- Estilos propios del proyecto -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Iconos de Font Awesome (usados en toda la página) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Fuentes: Inter para el texto general, Orbitron para títulos tecnológicos -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- =============================================
+       BARRA DE NAVEGACIÓN FIJA
+       Se mantiene visible al hacer scroll.
+       El menú hamburguesa aparece en móviles.
+  ============================================= -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <!-- Logo con ícono de escudo -->
+      <div class="logo"><i class="fa-solid fa-shield-halved"></i> Cyber<span>Educa</span></div>
+
+      <!-- Links de navegación, se ocultan en móvil -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#que-es">¿Qué es?</a></li>
+        <li><a href="#amenazas">Amenazas</a></li>
+        <li><a href="#proteccion">Protección</a></li>
+        <li><a href="#test">Test</a></li>
+        <li><a href="#tips">Tips</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <!-- Botón hamburguesa visible solo en pantallas pequeñas -->
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- =============================================
+       SECCIÓN HERO / INICIO
+       Primera pantalla que ve el usuario.
+       Incluye título, descripción, botones y
+       una animación de globo tecnológico.
+  ============================================= -->
+  <section id="inicio" class="hero">
+
+    <!-- Fondo con gradientes radiales decorativos -->
+    <div class="hero-bg"></div>
+
+    <div class="hero-content">
+      <!-- Etiqueta pequeña sobre el título -->
+      <div class="hero-badge"><i class="fa-solid fa-lock"></i> Seguridad Digital</div>
+
+      <h1>Protege tu mundo <span class="neon">digital</span></h1>
+      <p>Aprende a identificar amenazas, proteger tu información y navegar de forma segura en internet. La ciberseguridad es responsabilidad de todos.</p>
+
+      <!-- Botones de llamada a la acción -->
+      <div class="hero-btns">
+        <a href="#amenazas" class="btn-primary">Explorar amenazas</a>
+        <a href="#test" class="btn-outline">Hacer el test</a>
+      </div>
+
+      <!-- Estadísticas de impacto para generar conciencia -->
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">2.2B</span><span>Cuentas hackeadas/año</span></div>
+        <div class="stat"><span class="stat-num">95%</span><span>Ataques por error humano</span></div>
+        <div class="stat"><span class="stat-num">$8T</span><span>Costo global del cibercrimen</span></div>
+      </div>
+    </div>
+
+    <!-- Animación visual del globo (hecha solo con CSS) -->
+    <div class="hero-visual">
+      <div class="cyber-globe">
+        <!-- Tres anillos que giran a distintas velocidades -->
+        <div class="globe-ring r1"></div>
+        <div class="globe-ring r2"></div>
+        <div class="globe-ring r3"></div>
+        <!-- Centro del globo con el ícono de escudo -->
+        <div class="globe-core"><i class="fa-solid fa-shield-halved"></i></div>
+        <!-- Puntos que orbitan alrededor del globo -->
+        <div class="orbit-dot d1"></div>
+        <div class="orbit-dot d2"></div>
+        <div class="orbit-dot d3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECCIÓN: ¿QUÉ ES LA CIBERSEGURIDAD?
+       Explica el concepto con texto y tarjetas
+       informativas. Incluye los 3 pilares CIA.
+  ============================================= -->
+  <section id="que-es" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Fundamentos</span>
+        <h2>¿Qué es la <span class="neon">Ciberseguridad</span>?</h2>
+      </div>
+
+      <div class="que-es-grid">
+        <!-- Columna izquierda: texto explicativo y pilares -->
+        <div class="que-es-text">
+          <p>La <strong>ciberseguridad</strong> es el conjunto de prácticas, tecnologías y procesos diseñados para proteger sistemas, redes y datos de ataques digitales, accesos no autorizados y daños.</p>
+          <p>En un mundo donde casi toda nuestra información personal, financiera y profesional vive en internet, protegerla se ha vuelto tan importante como cerrar la puerta de tu casa.</p>
+
+          <!-- Los 3 pilares de la seguridad informática (modelo CIA) -->
+          <div class="pillars">
+            <div class="pillar"><i class="fa-solid fa-eye-slash"></i><span>Confidencialidad</span></div>
+            <div class="pillar"><i class="fa-solid fa-check-double"></i><span>Integridad</span></div>
+            <div class="pillar"><i class="fa-solid fa-circle-check"></i><span>Disponibilidad</span></div>
+          </div>
+        </div>
+
+        <!-- Columna derecha: tarjetas de áreas protegidas -->
+        <div class="que-es-cards">
+          <div class="info-card"><i class="fa-solid fa-user-shield"></i><h4>Protege tu identidad</h4><p>Evita que terceros accedan a tu información personal y financiera.</p></div>
+          <div class="info-card"><i class="fa-solid fa-server"></i><h4>Protege tus datos</h4><p>Mantiene tus archivos, fotos y documentos seguros ante ataques.</p></div>
+          <div class="info-card"><i class="fa-solid fa-wifi"></i><h4>Protege tu red</h4><p>Asegura que tu conexión a internet no sea interceptada.</p></div>
+          <div class="info-card"><i class="fa-solid fa-mobile-screen"></i><h4>Protege tus dispositivos</h4><p>Celulares, computadoras y tablets también son vulnerables.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECCIÓN: AMENAZAS COMUNES
+       Cada tarjeta tiene descripción, ejemplo real
+       y consejos de protección. Se expanden al
+       hacer clic en "Ver más" (ver app.js).
+  ============================================= -->
+  <section id="amenazas" class="section dark-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Conoce los riesgos</span>
+        <h2>Amenazas <span class="neon">Comunes</span></h2>
+        <p>Identificar las amenazas es el primer paso para protegerte.</p>
+      </div>
+
+      <div class="threats-grid">
+
+        <!-- Tarjeta: Phishing -->
+        <div class="threat-card" data-threat="phishing">
+          <div class="threat-icon phishing"><i class="fa-solid fa-fish"></i></div>
+          <h3>Phishing</h3>
+          <p>Engaños mediante correos, mensajes o sitios falsos que imitan entidades legítimas para robar tus datos.</p>
+          <!-- Contenido oculto que se muestra al expandir -->
+          <div class="threat-details">
+            <div class="detail-block">
+              <h4><i class="fa-solid fa-triangle-exclamation"></i> Ejemplo</h4>
+              <p>Un correo de "tu banco" pide que ingreses tu contraseña en un enlace falso.</p>
+            </div>
+            <div class="detail-block">
+              <h4><i class="fa-solid fa-shield-halved"></i> Cómo protegerte</h4>
+              <ul>
+                <li>Verifica el remitente del correo</li>
+                <li>No hagas clic en enlaces sospechosos</li>
+                <li>Accede directamente al sitio oficial</li>
+              </ul>
+            </div>
+          </div>
+          <button class="expand-btn" onclick="toggleThreat(this)">Ver más <i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+
+        <!-- Tarjeta: Malware -->
+        <div class="threat-card" data-threat="malware">
+          <div class="threat-icon malware"><i class="fa-solid fa-bug"></i></div>
+          <h3>Malware</h3>
+          <p>Software malicioso diseñado para dañar, robar información o tomar control de tu dispositivo sin tu permiso.</p>
+          <div class="threat-details">
+            <div class="detail-block">
+              <h4><i class="fa-solid fa-triangle-exclamation"></i> Ejemplo</h4>
+              <p>Descargas un programa gratuito que en secreto instala un virus que roba tus contraseñas.</p>
+            </div>
+            <div class="detail-block">
+              <h4><i class="fa-solid fa-shield-halved"></i> Cómo protegerte</h4>
+              <ul>
+                <li>Instala un antivirus confiable</li>
+                <li>Descarga solo de fuentes oficiales</li>
+                <li>Mantén tu sistema actualizado</li>
+              </ul>
+            </div>
+          </div>
+          <button class="expand-btn" onclick="toggleThreat(this)">Ver más <i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+
+        <!-- Tarjeta: Ransomware -->
+        <div class="threat-card" data-threat="ransomware">
+          <div class="threat-icon ransomware"><i class="fa-solid fa-lock"></i></div>
+          <h3>Ransomware</h3>
+          <p>Tipo de malware que cifra tus archivos y exige un pago (rescate) para devolverte el acceso.</p>
+          <div class="threat-details">
+            <div class="detail-block">
+              <h4><i class="fa-solid fa-triangle-exclamation"></i> Ejemplo</h4>
+              <p>Abres un archivo adjunto y todos tus documentos quedan bloqueados con un mensaje pidiendo Bitcoin.</p>
+            </div>
+            <div class="detail-block">
+              <h4><i class="fa-solid fa-shield-halved"></i> Cómo protegerte</h4>
+              <ul>
+                <li>Haz copias de seguridad regularmente</li>
+                <li>No abras adjuntos desconocidos</li>
+                <li>Nunca pagues el rescate</li>
+              </ul>
+            </div>
+          </div>
+          <button class="expand-btn" onclick="toggleThreat(this)">Ver más <i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+
+        <!-- Tarjeta: Robo de Identidad -->
+        <div class="threat-card" data-threat="robo">
+          <div class="threat-icon robo"><i class="fa-solid fa-id-card"></i></div>
+          <h3>Robo de Identidad</h3>
+          <p>Cuando alguien usa tu información personal (nombre, DNI, tarjetas) para cometer fraudes en tu nombre.</p>
+          <div class="threat-details">
+            <div class="detail-block">
+              <h4><i class="fa-solid fa-triangle-exclamation"></i> Ejemplo</h4>
+              <p>Usan tus datos filtrados para solicitar créditos o hacer compras sin tu conocimiento.</p>
+            </div>
+            <div class="detail-block">
+              <h4><i class="fa-solid fa-shield-halved"></i> Cómo protegerte</h4>
+              <ul>
+                <li>No compartas datos sensibles en línea</li>
+                <li>Usa contraseñas únicas por servicio</li>
+                <li>Revisa tus estados de cuenta</li>
+              </ul>
+            </div>
+          </div>
+          <button class="expand-btn" onclick="toggleThreat(this)">Ver más <i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+
+        <!-- Tarjeta: Spyware -->
+        <div class="threat-card" data-threat="spyware">
+          <div class="threat-icon spyware"><i class="fa-solid fa-eye"></i></div>
+          <h3>Spyware</h3>
+          <p>Software espía que se instala en tu dispositivo y monitorea tu actividad sin que lo sepas.</p>
+          <div class="threat-details">
+            <div class="detail-block">
+              <h4><i class="fa-solid fa-triangle-exclamation"></i> Ejemplo</h4>
+              <p>Un programa registra todo lo que escribes en el teclado, incluyendo contraseñas y datos bancarios.</p>
+            </div>
+            <div class="detail-block">
+              <h4><i class="fa-solid fa-shield-halved"></i> Cómo protegerte</h4>
+              <ul>
+                <li>Usa herramientas anti-spyware</li>
+                <li>Revisa los permisos de las apps</li>
+                <li>Evita redes WiFi públicas sin VPN</li>
+              </ul>
+            </div>
+          </div>
+          <button class="expand-btn" onclick="toggleThreat(this)">Ver más <i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECCIÓN: PROTECCIÓN DIGITAL
+       5 buenas prácticas numeradas.
+       La primera incluye un ejemplo visual
+       de contraseña mala vs buena.
+  ============================================= -->
+  <section id="proteccion" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Buenas prácticas</span>
+        <h2>Protección <span class="neon">Digital</span></h2>
+        <p>Pequeños hábitos que hacen una gran diferencia en tu seguridad.</p>
+      </div>
+
+      <div class="protection-grid">
+
+        <!-- Práctica 1: Contraseñas seguras (con ejemplo visual) -->
+        <div class="protection-card">
+          <div class="prot-num">01</div>
+          <div class="prot-icon"><i class="fa-solid fa-key"></i></div>
+          <h3>Contraseñas seguras</h3>
+          <p>Usa al menos 12 caracteres combinando letras, números y símbolos. Nunca uses tu nombre o fecha de nacimiento.</p>
+          <!-- Comparación visual: contraseña débil vs fuerte -->
+          <div class="password-example">
+            <span class="bad"><i class="fa-solid fa-xmark"></i> juan1990</span>
+            <span class="good"><i class="fa-solid fa-check"></i> K#9mP!2xLq@7</span>
+          </div>
+        </div>
+
+        <!-- Práctica 2: Autenticación de dos factores -->
+        <div class="protection-card">
+          <div class="prot-num">02</div>
+          <div class="prot-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <h3>Verificación en dos pasos</h3>
+          <p>Activa el 2FA en todas tus cuentas importantes. Aunque roben tu contraseña, no podrán entrar sin el segundo factor.</p>
+        </div>
+
+        <!-- Práctica 3: Cuidado con los enlaces -->
+        <div class="protection-card">
+          <div class="prot-num">03</div>
+          <div class="prot-icon"><i class="fa-solid fa-link-slash"></i></div>
+          <h3>No abras enlaces sospechosos</h3>
+          <p>Antes de hacer clic, verifica la URL. Los sitios falsos suelen tener errores ortográficos o dominios extraños.</p>
+        </div>
+
+        <!-- Práctica 4: Actualizaciones de software -->
+        <div class="protection-card">
+          <div class="prot-num">04</div>
+          <div class="prot-icon"><i class="fa-solid fa-rotate"></i></div>
+          <h3>Mantén tu software actualizado</h3>
+          <p>Las actualizaciones corrigen vulnerabilidades de seguridad. Un sistema desactualizado es una puerta abierta para atacantes.</p>
+        </div>
+
+        <!-- Práctica 5: Antivirus -->
+        <div class="protection-card">
+          <div class="prot-num">05</div>
+          <div class="prot-icon"><i class="fa-solid fa-shield-virus"></i></div>
+          <h3>Usa un antivirus</h3>
+          <p>Un buen antivirus detecta y elimina amenazas antes de que causen daño. Mantenlo siempre activo y actualizado.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECCIÓN: TEST INTERACTIVO
+       Cuestionario de 6 preguntas con opción múltiple.
+       La lógica del quiz está en app.js.
+       Al terminar muestra un resultado personalizado.
+  ============================================= -->
+  <section id="test" class="section dark-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Pon a prueba tu conocimiento</span>
+        <h2>Test de <span class="neon">Ciberseguridad</span></h2>
+        <p>¿Qué tan seguro navegas? Responde estas preguntas y descúbrelo.</p>
+      </div>
+
+      <div class="quiz-container">
+
+        <!-- Barra de progreso y contador de preguntas -->
+        <div class="quiz-progress">
+          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+          <span id="progressText">Pregunta 1 de 6</span>
+        </div>
+
+        <!-- Contenedor de preguntas (se muestran de una en una) -->
+        <div id="quizContent">
+
+          <!-- Pregunta 1 -->
+          <div class="question active" data-q="0">
+            <h3>¿Cuál de estas contraseñas es más segura?</h3>
+            <div class="options">
+              <!-- El segundo parámetro indica si la respuesta es correcta (true) o no (false) -->
+              <button class="option-btn" onclick="selectAnswer(this, false)">password123</button>
+              <button class="option-btn" onclick="selectAnswer(this, false)">juan2024</button>
+              <button class="option-btn" onclick="selectAnswer(this, true)">T#8kL!2mQp@9</button>
+              <button class="option-btn" onclick="selectAnswer(this, false)">qwerty</button>
+            </div>
+          </div>
+
+          <!-- Pregunta 2 -->
+          <div class="question" data-q="1">
+            <h3>¿Qué es el phishing?</h3>
+            <div class="options">
+              <button class="option-btn" onclick="selectAnswer(this, false)">Un tipo de virus que daña archivos</button>
+              <button class="option-btn" onclick="selectAnswer(this, true)">Un engaño para robar datos mediante mensajes falsos</button>
+              <button class="option-btn" onclick="selectAnswer(this, false)">Un programa para hackear redes WiFi</button>
+              <button class="option-btn" onclick="selectAnswer(this, false)">Un antivirus gratuito</button>
+            </div>
+          </div>
+
+          <!-- Pregunta 3 -->
+          <div class="question" data-q="2">
+            <h3>¿Qué debes hacer si recibes un correo sospechoso de tu banco?</h3>
+            <div class="options">
+              <button class="option-btn" onclick="selectAnswer(this, false)">Hacer clic en el enlace para verificar</button>
+              <button class="option-btn" onclick="selectAnswer(this, false)">Responder con tus datos para confirmar</button>
+              <button class="option-btn" onclick="selectAnswer(this, true)">Ir directamente al sitio oficial del banco</button>
+              <button class="option-btn" onclick="selectAnswer(this, false)">Reenviar el correo a tus contactos</button>
+            </div>
+          </div>
+
+          <!-- Pregunta 4 -->
+          <div class="question" data-q="3">
+            <h3>¿Qué significa 2FA?</h3>
+            <div class="options">
+              <button class="option-btn" onclick="selectAnswer(this, false)">Dos firewalls activos</button>
+              <button class="option-btn" onclick="selectAnswer(this, true)">Autenticación de dos factores</button>
+              <button class="option-btn" onclick="selectAnswer(this, false)">Dos contraseñas diferentes</button>
+              <button class="option-btn" onclick="selectAnswer(this, false)">Doble antivirus instalado</button>
+            </div>
+          </div>
+
+          <!-- Pregunta 5 -->
+          <div class="question" data-q="4">
+            <h3>¿Qué hace el ransomware?</h3>
+            <div class="options">
+              <button class="option-btn" onclick="selectAnswer(this, false)">Espía tu actividad en internet</button>
+              <button class="option-btn" onclick="selectAnswer(this, false)">Roba tus contraseñas guardadas</button>
+              <button class="option-btn" onclick="selectAnswer(this, true)">Cifra tus archivos y pide rescate</button>
+              <button class="option-btn" onclick="selectAnswer(this, false)">Ralentiza tu conexión a internet</button>
+            </div>
+          </div>
+
+          <!-- Pregunta 6 -->
+          <div class="question" data-q="5">
+            <h3>¿Cuál es la mejor práctica para las contraseñas?</h3>
+            <div class="options">
+              <button class="option-btn" onclick="selectAnswer(this, false)">Usar la misma en todos los sitios</button>
+              <button class="option-btn" onclick="selectAnswer(this, false)">Guardarlas en un papel junto al computador</button>
+              <button class="option-btn" onclick="selectAnswer(this, true)">Usar un gestor de contraseñas</button>
+              <button class="option-btn" onclick="selectAnswer(this, false)">Compartirlas con personas de confianza</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pantalla de resultado final (oculta hasta terminar el test) -->
+        <div id="quizResult" class="quiz-result hidden">
+          <div class="result-icon" id="resultIcon"></div>
+          <h3 id="resultTitle"></h3>
+          <p id="resultMsg"></p>
+          <div class="result-score" id="resultScore"></div>
+          <button class="btn-primary" onclick="restartQuiz()">Intentar de nuevo</button>
+        </div>
+
+        <!-- Botones de navegación entre preguntas -->
+        <div class="quiz-nav">
+          <button class="btn-outline" id="prevBtn" onclick="prevQuestion()" disabled>Anterior</button>
+          <button class="btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>Siguiente</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECCIÓN: TIPS Y NOVEDADES
+       La primera tarjeta (featured) ocupa todo
+       el ancho. Las demás se distribuyen en grid.
+  ============================================= -->
+  <section id="tips" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Mantente informado</span>
+        <h2>Tips & <span class="neon">Novedades</span></h2>
+      </div>
+
+      <div class="tips-grid">
+
+        <!-- Tarjeta destacada (ocupa todo el ancho) -->
+        <div class="tip-card featured">
+          <div class="tip-tag">Consejo del día</div>
+          <i class="fa-solid fa-lightbulb tip-icon"></i>
+          <h3>Usa una VPN en redes públicas</h3>
+          <p>Las redes WiFi de cafeterías, aeropuertos y centros comerciales son vulnerables. Una VPN cifra tu tráfico y protege tus datos de miradas indiscretas.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-tag">Seguridad</div>
+          <i class="fa-solid fa-envelope-circle-check tip-icon"></i>
+          <h3>Verifica el remitente siempre</h3>
+          <p>Un correo puede parecer legítimo pero venir de un dominio falso. Revisa la dirección completa antes de responder o hacer clic.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-tag">Privacidad</div>
+          <i class="fa-solid fa-user-lock tip-icon"></i>
+          <h3>Revisa los permisos de tus apps</h3>
+          <p>Muchas aplicaciones piden acceso a tu cámara, micrófono y ubicación sin necesitarlo. Revisa y revoca los permisos innecesarios.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-tag">Tendencia</div>
+          <i class="fa-solid fa-robot tip-icon"></i>
+          <h3>IA y ciberataques en 2025</h3>
+          <p>Los atacantes usan inteligencia artificial para crear phishing más convincente y automatizar ataques. Mantente alerta ante mensajes demasiado personalizados.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-tag">Buena práctica</div>
+          <i class="fa-solid fa-cloud-arrow-up tip-icon"></i>
+          <h3>Haz copias de seguridad</h3>
+          <p>Guarda copias de tus archivos importantes en la nube y en un disco externo. Ante un ataque de ransomware, podrás recuperar todo sin pagar.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-tag">Alerta</div>
+          <i class="fa-solid fa-triangle-exclamation tip-icon"></i>
+          <h3>Cuidado con el smishing</h3>
+          <p>El phishing por SMS (smishing) está en aumento. Mensajes falsos de bancos, paqueterías o gobierno buscan que hagas clic en enlaces maliciosos.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECCIÓN: CONTACTO
+       Lado izquierdo: info de contacto y redes.
+       Lado derecho: formulario con validación.
+       El envío es simulado (ver app.js).
+  ============================================= -->
+  <section id="contacto" class="section dark-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Escríbenos</span>
+        <h2>¿Tienes <span class="neon">preguntas</span>?</h2>
+        <p>Estamos aquí para ayudarte a navegar de forma más segura.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Información de contacto -->
+        <div class="contact-info">
+          <div class="contact-item"><i class="fa-solid fa-envelope"></i><div><h4>Email</h4><p>info@cybereduca.com</p></div></div>
+          <div class="contact-item"><i class="fa-solid fa-clock"></i><div><h4>Respuesta</h4><p>En menos de 24 horas</p></div></div>
+
+          <!-- Redes sociales -->
+          <div class="social-links">
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Formulario de contacto -->
+        <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+          <div class="form-group">
+            <label for="name">Nombre completo</label>
+            <input type="text" id="name" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" placeholder="tu@correo.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Asunto</label>
+            <select id="subject">
+              <option value="">Selecciona un tema</option>
+              <option>Consulta sobre amenazas</option>
+              <option>Reporte de incidente</option>
+              <option>Colaboración educativa</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary full-width">Enviar mensaje <i class="fa-solid fa-paper-plane"></i></button>
+
+          <!-- Mensaje de éxito, oculto por defecto -->
+          <div id="formSuccess" class="form-success hidden">
+            <i class="fa-solid fa-circle-check"></i> ¡Mensaje enviado! Te responderemos pronto.
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       FOOTER
+       Cuatro columnas: marca, navegación,
+       recursos y newsletter.
+  ============================================= -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Columna 1: Logo, descripción y redes -->
+        <div class="footer-brand">
+          <div class="logo"><i class="fa-solid fa-shield-halved"></i> Cyber<span>Educa</span></div>
+          <p>Educando para un internet más seguro. La ciberseguridad empieza con el conocimiento.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Columna 2: Links de navegación -->
+        <div class="footer-links">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#que-es">¿Qué es la ciberseguridad?</a></li>
+            <li><a href="#amenazas">Amenazas comunes</a></li>
+            <li><a href="#proteccion">Protección digital</a></li>
+            <li><a href="#test">Test interactivo</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Recursos adicionales -->
+        <div class="footer-links">
+          <h4>Recursos</h4>
+          <ul>
+            <li><a href="#">Glosario de términos</a></li>
+            <li><a href="#">Guías descargables</a></li>
+            <li><a href="#">Reportar incidente</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Términos de uso</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Suscripción al newsletter -->
+        <div class="footer-newsletter">
+          <h4>Newsletter</h4>
+          <p>Recibe tips de seguridad semanales en tu correo.</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="tu@correo.com" />
+            <button class="btn-primary">Suscribir</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Barra inferior del footer -->
+      <div class="footer-bottom">
+        <p>© 2026 CyberEduca. Todos los derechos reservados.</p>
+        <p>Hecho con <i class="fa-solid fa-heart" style="color:#00ff88"></i> para un internet más seguro.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notificación flotante (toast) para feedback del quiz y formulario -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- Script principal al final para que el DOM ya esté cargado -->
+  <script src="app.js"></script>
+</body>
+</html>
