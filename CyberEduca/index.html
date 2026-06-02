@@ -518,31 +518,25 @@
 
         <!-- Información de contacto -->
         <div class="contact-info">
-          <div class="contact-item"><i class="fa-solid fa-envelope"></i><div><h4>Email</h4><p>info@cybereduca.com</p></div></div>
+          <div class="contact-item"><i class="fa-solid fa-envelope"></i><div><h4>Email</h4><p>infocybereduca@gmail.com</p></div></div>
           <div class="contact-item"><i class="fa-solid fa-clock"></i><div><h4>Respuesta</h4><p>En menos de 24 horas</p></div></div>
 
-          <!-- Redes sociales -->
-          <div class="social-links">
-            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          </div>
+
         </div>
 
         <!-- Formulario de contacto -->
-        <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/maqkrqay" method="POST" onsubmit="submitForm(event)">
           <div class="form-group">
             <label for="name">Nombre completo</label>
-            <input type="text" id="name" placeholder="Tu nombre" required />
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required />
           </div>
           <div class="form-group">
             <label for="email">Correo electrónico</label>
-            <input type="email" id="email" placeholder="tu@correo.com" required />
+            <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
           </div>
           <div class="form-group">
             <label for="subject">Asunto</label>
-            <select id="subject">
+            <select id="subject" name="subject">
               <option value="">Selecciona un tema</option>
               <option>Consulta sobre amenazas</option>
               <option>Reporte de incidente</option>
@@ -552,7 +546,7 @@
           </div>
           <div class="form-group">
             <label for="message">Mensaje</label>
-            <textarea id="message" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            <textarea id="message" name="message" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
           </div>
           <button type="submit" class="btn-primary full-width">Enviar mensaje <i class="fa-solid fa-paper-plane"></i></button>
 
@@ -579,12 +573,7 @@
         <div class="footer-brand">
           <div class="logo"><i class="fa-solid fa-shield-halved"></i> Cyber<span>Educa</span></div>
           <p>Educando para un internet más seguro. La ciberseguridad empieza con el conocimiento.</p>
-          <div class="social-links">
-            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          </div>
+
         </div>
 
         <!-- Columna 2: Links de navegación -->
