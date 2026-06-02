@@ -1,629 +1,605 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CyberEduca - Educación en Ciberseguridad</title>
-
-  <!-- Estilos propios del proyecto -->
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- Iconos de Font Awesome (usados en toda la página) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <!-- Fuentes: Inter para el texto general, Orbitron para títulos tecnológicos -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
-</head>
-<body>
-
-  <!-- =============================================
-       BARRA DE NAVEGACIÓN FIJA
-       Se mantiene visible al hacer scroll.
-       El menú hamburguesa aparece en móviles.
-  ============================================= -->
-  <nav id="navbar">
-    <div class="nav-container">
-      <!-- Logo con ícono de escudo -->
-      <div class="logo"><i class="fa-solid fa-shield-halved"></i> Cyber<span>Educa</span></div>
-
-      <!-- Links de navegación, se ocultan en móvil -->
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#que-es">¿Qué es?</a></li>
-        <li><a href="#amenazas">Amenazas</a></li>
-        <li><a href="#proteccion">Protección</a></li>
-        <li><a href="#test">Test</a></li>
-        <li><a href="#tips">Tips</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-
-      <!-- Botón hamburguesa visible solo en pantallas pequeñas -->
-      <button class="hamburger" id="hamburger" aria-label="Menú">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- =============================================
-       SECCIÓN HERO / INICIO
-       Primera pantalla que ve el usuario.
-       Incluye título, descripción, botones y
-       una animación de globo tecnológico.
-  ============================================= -->
-  <section id="inicio" class="hero">
-
-    <!-- Fondo con gradientes radiales decorativos -->
-    <div class="hero-bg"></div>
-
-    <div class="hero-content">
-      <!-- Etiqueta pequeña sobre el título -->
-      <div class="hero-badge"><i class="fa-solid fa-lock"></i> Seguridad Digital</div>
-
-      <h1>Protege tu mundo <span class="neon">digital</span></h1>
-      <p>Aprende a identificar amenazas, proteger tu información y navegar de forma segura en internet. La ciberseguridad es responsabilidad de todos.</p>
-
-      <!-- Botones de llamada a la acción -->
-      <div class="hero-btns">
-        <a href="#amenazas" class="btn-primary">Explorar amenazas</a>
-        <a href="#test" class="btn-outline">Hacer el test</a>
-      </div>
-
-      <!-- Estadísticas de impacto para generar conciencia -->
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-num">2.2B</span><span>Cuentas hackeadas/año</span></div>
-        <div class="stat"><span class="stat-num">95%</span><span>Ataques por error humano</span></div>
-        <div class="stat"><span class="stat-num">$8T</span><span>Costo global del cibercrimen</span></div>
-      </div>
-    </div>
-
-    <!-- Animación visual del globo (hecha solo con CSS) -->
-    <div class="hero-visual">
-      <div class="cyber-globe">
-        <!-- Tres anillos que giran a distintas velocidades -->
-        <div class="globe-ring r1"></div>
-        <div class="globe-ring r2"></div>
-        <div class="globe-ring r3"></div>
-        <!-- Centro del globo con el ícono de escudo -->
-        <div class="globe-core"><i class="fa-solid fa-shield-halved"></i></div>
-        <!-- Puntos que orbitan alrededor del globo -->
-        <div class="orbit-dot d1"></div>
-        <div class="orbit-dot d2"></div>
-        <div class="orbit-dot d3"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =============================================
-       SECCIÓN: ¿QUÉ ES LA CIBERSEGURIDAD?
-       Explica el concepto con texto y tarjetas
-       informativas. Incluye los 3 pilares CIA.
-  ============================================= -->
-  <section id="que-es" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Fundamentos</span>
-        <h2>¿Qué es la <span class="neon">Ciberseguridad</span>?</h2>
-      </div>
-
-      <div class="que-es-grid">
-        <!-- Columna izquierda: texto explicativo y pilares -->
-        <div class="que-es-text">
-          <p>La <strong>ciberseguridad</strong> es el conjunto de prácticas, tecnologías y procesos diseñados para proteger sistemas, redes y datos de ataques digitales, accesos no autorizados y daños.</p>
-          <p>En un mundo donde casi toda nuestra información personal, financiera y profesional vive en internet, protegerla se ha vuelto tan importante como cerrar la puerta de tu casa.</p>
-
-          <!-- Los 3 pilares de la seguridad informática (modelo CIA) -->
-          <div class="pillars">
-            <div class="pillar"><i class="fa-solid fa-eye-slash"></i><span>Confidencialidad</span></div>
-            <div class="pillar"><i class="fa-solid fa-check-double"></i><span>Integridad</span></div>
-            <div class="pillar"><i class="fa-solid fa-circle-check"></i><span>Disponibilidad</span></div>
-          </div>
-        </div>
-
-        <!-- Columna derecha: tarjetas de áreas protegidas -->
-        <div class="que-es-cards">
-          <div class="info-card"><i class="fa-solid fa-user-shield"></i><h4>Protege tu identidad</h4><p>Evita que terceros accedan a tu información personal y financiera.</p></div>
-          <div class="info-card"><i class="fa-solid fa-server"></i><h4>Protege tus datos</h4><p>Mantiene tus archivos, fotos y documentos seguros ante ataques.</p></div>
-          <div class="info-card"><i class="fa-solid fa-wifi"></i><h4>Protege tu red</h4><p>Asegura que tu conexión a internet no sea interceptada.</p></div>
-          <div class="info-card"><i class="fa-solid fa-mobile-screen"></i><h4>Protege tus dispositivos</h4><p>Celulares, computadoras y tablets también son vulnerables.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =============================================
-       SECCIÓN: AMENAZAS COMUNES
-       Cada tarjeta tiene descripción, ejemplo real
-       y consejos de protección. Se expanden al
-       hacer clic en "Ver más" (ver app.js).
-  ============================================= -->
-  <section id="amenazas" class="section dark-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Conoce los riesgos</span>
-        <h2>Amenazas <span class="neon">Comunes</span></h2>
-        <p>Identificar las amenazas es el primer paso para protegerte.</p>
-      </div>
-
-      <div class="threats-grid">
-
-        <!-- Tarjeta: Phishing -->
-        <div class="threat-card" data-threat="phishing">
-          <div class="threat-icon phishing"><i class="fa-solid fa-fish"></i></div>
-          <h3>Phishing</h3>
-          <p>Engaños mediante correos, mensajes o sitios falsos que imitan entidades legítimas para robar tus datos.</p>
-          <!-- Contenido oculto que se muestra al expandir -->
-          <div class="threat-details">
-            <div class="detail-block">
-              <h4><i class="fa-solid fa-triangle-exclamation"></i> Ejemplo</h4>
-              <p>Un correo de "tu banco" pide que ingreses tu contraseña en un enlace falso.</p>
-            </div>
-            <div class="detail-block">
-              <h4><i class="fa-solid fa-shield-halved"></i> Cómo protegerte</h4>
-              <ul>
-                <li>Verifica el remitente del correo</li>
-                <li>No hagas clic en enlaces sospechosos</li>
-                <li>Accede directamente al sitio oficial</li>
-              </ul>
-            </div>
-          </div>
-          <button class="expand-btn" onclick="toggleThreat(this)">Ver más <i class="fa-solid fa-chevron-down"></i></button>
-        </div>
-
-        <!-- Tarjeta: Malware -->
-        <div class="threat-card" data-threat="malware">
-          <div class="threat-icon malware"><i class="fa-solid fa-bug"></i></div>
-          <h3>Malware</h3>
-          <p>Software malicioso diseñado para dañar, robar información o tomar control de tu dispositivo sin tu permiso.</p>
-          <div class="threat-details">
-            <div class="detail-block">
-              <h4><i class="fa-solid fa-triangle-exclamation"></i> Ejemplo</h4>
-              <p>Descargas un programa gratuito que en secreto instala un virus que roba tus contraseñas.</p>
-            </div>
-            <div class="detail-block">
-              <h4><i class="fa-solid fa-shield-halved"></i> Cómo protegerte</h4>
-              <ul>
-                <li>Instala un antivirus confiable</li>
-                <li>Descarga solo de fuentes oficiales</li>
-                <li>Mantén tu sistema actualizado</li>
-              </ul>
-            </div>
-          </div>
-          <button class="expand-btn" onclick="toggleThreat(this)">Ver más <i class="fa-solid fa-chevron-down"></i></button>
-        </div>
-
-        <!-- Tarjeta: Ransomware -->
-        <div class="threat-card" data-threat="ransomware">
-          <div class="threat-icon ransomware"><i class="fa-solid fa-lock"></i></div>
-          <h3>Ransomware</h3>
-          <p>Tipo de malware que cifra tus archivos y exige un pago (rescate) para devolverte el acceso.</p>
-          <div class="threat-details">
-            <div class="detail-block">
-              <h4><i class="fa-solid fa-triangle-exclamation"></i> Ejemplo</h4>
-              <p>Abres un archivo adjunto y todos tus documentos quedan bloqueados con un mensaje pidiendo Bitcoin.</p>
-            </div>
-            <div class="detail-block">
-              <h4><i class="fa-solid fa-shield-halved"></i> Cómo protegerte</h4>
-              <ul>
-                <li>Haz copias de seguridad regularmente</li>
-                <li>No abras adjuntos desconocidos</li>
-                <li>Nunca pagues el rescate</li>
-              </ul>
-            </div>
-          </div>
-          <button class="expand-btn" onclick="toggleThreat(this)">Ver más <i class="fa-solid fa-chevron-down"></i></button>
-        </div>
-
-        <!-- Tarjeta: Robo de Identidad -->
-        <div class="threat-card" data-threat="robo">
-          <div class="threat-icon robo"><i class="fa-solid fa-id-card"></i></div>
-          <h3>Robo de Identidad</h3>
-          <p>Cuando alguien usa tu información personal (nombre, DNI, tarjetas) para cometer fraudes en tu nombre.</p>
-          <div class="threat-details">
-            <div class="detail-block">
-              <h4><i class="fa-solid fa-triangle-exclamation"></i> Ejemplo</h4>
-              <p>Usan tus datos filtrados para solicitar créditos o hacer compras sin tu conocimiento.</p>
-            </div>
-            <div class="detail-block">
-              <h4><i class="fa-solid fa-shield-halved"></i> Cómo protegerte</h4>
-              <ul>
-                <li>No compartas datos sensibles en línea</li>
-                <li>Usa contraseñas únicas por servicio</li>
-                <li>Revisa tus estados de cuenta</li>
-              </ul>
-            </div>
-          </div>
-          <button class="expand-btn" onclick="toggleThreat(this)">Ver más <i class="fa-solid fa-chevron-down"></i></button>
-        </div>
-
-        <!-- Tarjeta: Spyware -->
-        <div class="threat-card" data-threat="spyware">
-          <div class="threat-icon spyware"><i class="fa-solid fa-eye"></i></div>
-          <h3>Spyware</h3>
-          <p>Software espía que se instala en tu dispositivo y monitorea tu actividad sin que lo sepas.</p>
-          <div class="threat-details">
-            <div class="detail-block">
-              <h4><i class="fa-solid fa-triangle-exclamation"></i> Ejemplo</h4>
-              <p>Un programa registra todo lo que escribes en el teclado, incluyendo contraseñas y datos bancarios.</p>
-            </div>
-            <div class="detail-block">
-              <h4><i class="fa-solid fa-shield-halved"></i> Cómo protegerte</h4>
-              <ul>
-                <li>Usa herramientas anti-spyware</li>
-                <li>Revisa los permisos de las apps</li>
-                <li>Evita redes WiFi públicas sin VPN</li>
-              </ul>
-            </div>
-          </div>
-          <button class="expand-btn" onclick="toggleThreat(this)">Ver más <i class="fa-solid fa-chevron-down"></i></button>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- =============================================
-       SECCIÓN: PROTECCIÓN DIGITAL
-       5 buenas prácticas numeradas.
-       La primera incluye un ejemplo visual
-       de contraseña mala vs buena.
-  ============================================= -->
-  <section id="proteccion" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Buenas prácticas</span>
-        <h2>Protección <span class="neon">Digital</span></h2>
-        <p>Pequeños hábitos que hacen una gran diferencia en tu seguridad.</p>
-      </div>
-
-      <div class="protection-grid">
-
-        <!-- Práctica 1: Contraseñas seguras (con ejemplo visual) -->
-        <div class="protection-card">
-          <div class="prot-num">01</div>
-          <div class="prot-icon"><i class="fa-solid fa-key"></i></div>
-          <h3>Contraseñas seguras</h3>
-          <p>Usa al menos 12 caracteres combinando letras, números y símbolos. Nunca uses tu nombre o fecha de nacimiento.</p>
-          <!-- Comparación visual: contraseña débil vs fuerte -->
-          <div class="password-example">
-            <span class="bad"><i class="fa-solid fa-xmark"></i> juan1990</span>
-            <span class="good"><i class="fa-solid fa-check"></i> K#9mP!2xLq@7</span>
-          </div>
-        </div>
-
-        <!-- Práctica 2: Autenticación de dos factores -->
-        <div class="protection-card">
-          <div class="prot-num">02</div>
-          <div class="prot-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-          <h3>Verificación en dos pasos</h3>
-          <p>Activa el 2FA en todas tus cuentas importantes. Aunque roben tu contraseña, no podrán entrar sin el segundo factor.</p>
-        </div>
-
-        <!-- Práctica 3: Cuidado con los enlaces -->
-        <div class="protection-card">
-          <div class="prot-num">03</div>
-          <div class="prot-icon"><i class="fa-solid fa-link-slash"></i></div>
-          <h3>No abras enlaces sospechosos</h3>
-          <p>Antes de hacer clic, verifica la URL. Los sitios falsos suelen tener errores ortográficos o dominios extraños.</p>
-        </div>
-
-        <!-- Práctica 4: Actualizaciones de software -->
-        <div class="protection-card">
-          <div class="prot-num">04</div>
-          <div class="prot-icon"><i class="fa-solid fa-rotate"></i></div>
-          <h3>Mantén tu software actualizado</h3>
-          <p>Las actualizaciones corrigen vulnerabilidades de seguridad. Un sistema desactualizado es una puerta abierta para atacantes.</p>
-        </div>
-
-        <!-- Práctica 5: Antivirus -->
-        <div class="protection-card">
-          <div class="prot-num">05</div>
-          <div class="prot-icon"><i class="fa-solid fa-shield-virus"></i></div>
-          <h3>Usa un antivirus</h3>
-          <p>Un buen antivirus detecta y elimina amenazas antes de que causen daño. Mantenlo siempre activo y actualizado.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- =============================================
-       SECCIÓN: TEST INTERACTIVO
-       Cuestionario de 6 preguntas con opción múltiple.
-       La lógica del quiz está en app.js.
-       Al terminar muestra un resultado personalizado.
-  ============================================= -->
-  <section id="test" class="section dark-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Pon a prueba tu conocimiento</span>
-        <h2>Test de <span class="neon">Ciberseguridad</span></h2>
-        <p>¿Qué tan seguro navegas? Responde estas preguntas y descúbrelo.</p>
-      </div>
-
-      <div class="quiz-container">
-
-        <!-- Barra de progreso y contador de preguntas -->
-        <div class="quiz-progress">
-          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-          <span id="progressText">Pregunta 1 de 6</span>
-        </div>
-
-        <!-- Contenedor de preguntas (se muestran de una en una) -->
-        <div id="quizContent">
-
-          <!-- Pregunta 1 -->
-          <div class="question active" data-q="0">
-            <h3>¿Cuál de estas contraseñas es más segura?</h3>
-            <div class="options">
-              <!-- El segundo parámetro indica si la respuesta es correcta (true) o no (false) -->
-              <button class="option-btn" onclick="selectAnswer(this, false)">password123</button>
-              <button class="option-btn" onclick="selectAnswer(this, false)">juan2024</button>
-              <button class="option-btn" onclick="selectAnswer(this, true)">T#8kL!2mQp@9</button>
-              <button class="option-btn" onclick="selectAnswer(this, false)">qwerty</button>
-            </div>
-          </div>
-
-          <!-- Pregunta 2 -->
-          <div class="question" data-q="1">
-            <h3>¿Qué es el phishing?</h3>
-            <div class="options">
-              <button class="option-btn" onclick="selectAnswer(this, false)">Un tipo de virus que daña archivos</button>
-              <button class="option-btn" onclick="selectAnswer(this, true)">Un engaño para robar datos mediante mensajes falsos</button>
-              <button class="option-btn" onclick="selectAnswer(this, false)">Un programa para hackear redes WiFi</button>
-              <button class="option-btn" onclick="selectAnswer(this, false)">Un antivirus gratuito</button>
-            </div>
-          </div>
-
-          <!-- Pregunta 3 -->
-          <div class="question" data-q="2">
-            <h3>¿Qué debes hacer si recibes un correo sospechoso de tu banco?</h3>
-            <div class="options">
-              <button class="option-btn" onclick="selectAnswer(this, false)">Hacer clic en el enlace para verificar</button>
-              <button class="option-btn" onclick="selectAnswer(this, false)">Responder con tus datos para confirmar</button>
-              <button class="option-btn" onclick="selectAnswer(this, true)">Ir directamente al sitio oficial del banco</button>
-              <button class="option-btn" onclick="selectAnswer(this, false)">Reenviar el correo a tus contactos</button>
-            </div>
-          </div>
-
-          <!-- Pregunta 4 -->
-          <div class="question" data-q="3">
-            <h3>¿Qué significa 2FA?</h3>
-            <div class="options">
-              <button class="option-btn" onclick="selectAnswer(this, false)">Dos firewalls activos</button>
-              <button class="option-btn" onclick="selectAnswer(this, true)">Autenticación de dos factores</button>
-              <button class="option-btn" onclick="selectAnswer(this, false)">Dos contraseñas diferentes</button>
-              <button class="option-btn" onclick="selectAnswer(this, false)">Doble antivirus instalado</button>
-            </div>
-          </div>
-
-          <!-- Pregunta 5 -->
-          <div class="question" data-q="4">
-            <h3>¿Qué hace el ransomware?</h3>
-            <div class="options">
-              <button class="option-btn" onclick="selectAnswer(this, false)">Espía tu actividad en internet</button>
-              <button class="option-btn" onclick="selectAnswer(this, false)">Roba tus contraseñas guardadas</button>
-              <button class="option-btn" onclick="selectAnswer(this, true)">Cifra tus archivos y pide rescate</button>
-              <button class="option-btn" onclick="selectAnswer(this, false)">Ralentiza tu conexión a internet</button>
-            </div>
-          </div>
-
-          <!-- Pregunta 6 -->
-          <div class="question" data-q="5">
-            <h3>¿Cuál es la mejor práctica para las contraseñas?</h3>
-            <div class="options">
-              <button class="option-btn" onclick="selectAnswer(this, false)">Usar la misma en todos los sitios</button>
-              <button class="option-btn" onclick="selectAnswer(this, false)">Guardarlas en un papel junto al computador</button>
-              <button class="option-btn" onclick="selectAnswer(this, true)">Usar un gestor de contraseñas</button>
-              <button class="option-btn" onclick="selectAnswer(this, false)">Compartirlas con personas de confianza</button>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Pantalla de resultado final (oculta hasta terminar el test) -->
-        <div id="quizResult" class="quiz-result hidden">
-          <div class="result-icon" id="resultIcon"></div>
-          <h3 id="resultTitle"></h3>
-          <p id="resultMsg"></p>
-          <div class="result-score" id="resultScore"></div>
-          <button class="btn-primary" onclick="restartQuiz()">Intentar de nuevo</button>
-        </div>
-
-        <!-- Botones de navegación entre preguntas -->
-        <div class="quiz-nav">
-          <button class="btn-outline" id="prevBtn" onclick="prevQuestion()" disabled>Anterior</button>
-          <button class="btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>Siguiente</button>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- =============================================
-       SECCIÓN: TIPS Y NOVEDADES
-       La primera tarjeta (featured) ocupa todo
-       el ancho. Las demás se distribuyen en grid.
-  ============================================= -->
-  <section id="tips" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Mantente informado</span>
-        <h2>Tips & <span class="neon">Novedades</span></h2>
-      </div>
-
-      <div class="tips-grid">
-
-        <!-- Tarjeta destacada (ocupa todo el ancho) -->
-        <div class="tip-card featured">
-          <div class="tip-tag">Consejo del día</div>
-          <i class="fa-solid fa-lightbulb tip-icon"></i>
-          <h3>Usa una VPN en redes públicas</h3>
-          <p>Las redes WiFi de cafeterías, aeropuertos y centros comerciales son vulnerables. Una VPN cifra tu tráfico y protege tus datos de miradas indiscretas.</p>
-        </div>
-
-        <div class="tip-card">
-          <div class="tip-tag">Seguridad</div>
-          <i class="fa-solid fa-envelope-circle-check tip-icon"></i>
-          <h3>Verifica el remitente siempre</h3>
-          <p>Un correo puede parecer legítimo pero venir de un dominio falso. Revisa la dirección completa antes de responder o hacer clic.</p>
-        </div>
-
-        <div class="tip-card">
-          <div class="tip-tag">Privacidad</div>
-          <i class="fa-solid fa-user-lock tip-icon"></i>
-          <h3>Revisa los permisos de tus apps</h3>
-          <p>Muchas aplicaciones piden acceso a tu cámara, micrófono y ubicación sin necesitarlo. Revisa y revoca los permisos innecesarios.</p>
-        </div>
-
-        <div class="tip-card">
-          <div class="tip-tag">Tendencia</div>
-          <i class="fa-solid fa-robot tip-icon"></i>
-          <h3>IA y ciberataques en 2025</h3>
-          <p>Los atacantes usan inteligencia artificial para crear phishing más convincente y automatizar ataques. Mantente alerta ante mensajes demasiado personalizados.</p>
-        </div>
-
-        <div class="tip-card">
-          <div class="tip-tag">Buena práctica</div>
-          <i class="fa-solid fa-cloud-arrow-up tip-icon"></i>
-          <h3>Haz copias de seguridad</h3>
-          <p>Guarda copias de tus archivos importantes en la nube y en un disco externo. Ante un ataque de ransomware, podrás recuperar todo sin pagar.</p>
-        </div>
-
-        <div class="tip-card">
-          <div class="tip-tag">Alerta</div>
-          <i class="fa-solid fa-triangle-exclamation tip-icon"></i>
-          <h3>Cuidado con el smishing</h3>
-          <p>El phishing por SMS (smishing) está en aumento. Mensajes falsos de bancos, paqueterías o gobierno buscan que hagas clic en enlaces maliciosos.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- =============================================
-       SECCIÓN: CONTACTO
-       Lado izquierdo: info de contacto y redes.
-       Lado derecho: formulario con validación.
-       El envío es simulado (ver app.js).
-  ============================================= -->
-  <section id="contacto" class="section dark-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Escríbenos</span>
-        <h2>¿Tienes <span class="neon">preguntas</span>?</h2>
-        <p>Estamos aquí para ayudarte a navegar de forma más segura.</p>
-      </div>
-
-      <div class="contact-grid">
-
-        <!-- Información de contacto -->
-        <div class="contact-info">
-          <div class="contact-item"><i class="fa-solid fa-envelope"></i><div><h4>Email</h4><p>infocybereduca@gmail.com</p></div></div>
-          <div class="contact-item"><i class="fa-solid fa-clock"></i><div><h4>Respuesta</h4><p>En menos de 24 horas</p></div></div>
-
-
-        </div>
-
-        <!-- Formulario de contacto -->
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/maqkrqay" method="POST" onsubmit="submitForm(event)">
-          <div class="form-group">
-            <label for="name">Nombre completo</label>
-            <input type="text" id="name" name="name" placeholder="Tu nombre" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
-          </div>
-          <div class="form-group">
-            <label for="subject">Asunto</label>
-            <select id="subject" name="subject">
-              <option value="">Selecciona un tema</option>
-              <option>Consulta sobre amenazas</option>
-              <option>Reporte de incidente</option>
-              <option>Colaboración educativa</option>
-              <option>Otro</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Mensaje</label>
-            <textarea id="message" name="message" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
-          </div>
-          <button type="submit" class="btn-primary full-width">Enviar mensaje <i class="fa-solid fa-paper-plane"></i></button>
-
-          <!-- Mensaje de éxito, oculto por defecto -->
-          <div id="formSuccess" class="form-success hidden">
-            <i class="fa-solid fa-circle-check"></i> ¡Mensaje enviado! Te responderemos pronto.
-          </div>
-        </form>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- =============================================
-       FOOTER
-       Cuatro columnas: marca, navegación,
-       recursos y newsletter.
-  ============================================= -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-
-        <!-- Columna 1: Logo, descripción y redes -->
-        <div class="footer-brand">
-          <div class="logo"><i class="fa-solid fa-shield-halved"></i> Cyber<span>Educa</span></div>
-          <p>Educando para un internet más seguro. La ciberseguridad empieza con el conocimiento.</p>
-
-        </div>
-
-        <!-- Columna 2: Links de navegación -->
-        <div class="footer-links">
-          <h4>Navegación</h4>
-          <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#que-es">¿Qué es la ciberseguridad?</a></li>
-            <li><a href="#amenazas">Amenazas comunes</a></li>
-            <li><a href="#proteccion">Protección digital</a></li>
-            <li><a href="#test">Test interactivo</a></li>
-          </ul>
-        </div>
-
-        <!-- Columna 3: Recursos adicionales -->
-        <div class="footer-links">
-          <h4>Recursos</h4>
-          <ul>
-            <li><a href="#">Glosario de términos</a></li>
-            <li><a href="#">Guías descargables</a></li>
-            <li><a href="#">Reportar incidente</a></li>
-            <li><a href="#">Política de privacidad</a></li>
-            <li><a href="#">Términos de uso</a></li>
-          </ul>
-        </div>
-
-        <!-- Columna 4: Suscripción al newsletter -->
-        <div class="footer-newsletter">
-          <h4>Newsletter</h4>
-          <p>Recibe tips de seguridad semanales en tu correo.</p>
-          <div class="newsletter-form">
-            <input type="email" placeholder="tu@correo.com" />
-            <button class="btn-primary">Suscribir</button>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Barra inferior del footer -->
-      <div class="footer-bottom">
-        <p>© 2026 CyberEduca. Todos los derechos reservados.</p>
-        <p>Hecho con <i class="fa-solid fa-heart" style="color:#00ff88"></i> para un internet más seguro.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Notificación flotante (toast) para feedback del quiz y formulario -->
-  <div id="toast" class="toast hidden"></div>
-
-  <!-- Script principal al final para que el DOM ya esté cargado -->
-  <script src="app.js"></script>
-</body>
-</html>
+/* =============================================
+   RESET Y BASE
+   Elimina márgenes y paddings por defecto
+   del navegador para partir desde cero.
+============================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Variables globales de color y espaciado.
+   Cambiar aquí afecta todo el sitio. */
+:root {
+  --bg: #050d1a;           /* Fondo principal (azul muy oscuro) */
+  --bg2: #0a1628;          /* Fondo de secciones alternas */
+  --bg3: #0f1f3d;          /* Fondo del toast y elementos flotantes */
+  --neon: #00ff88;         /* Verde neón principal */
+  --neon2: #00d4ff;        /* Azul cian para acentos secundarios */
+  --blue: #1a6bff;         /* Azul eléctrico (reservado para uso futuro) */
+  --text: #e2e8f0;         /* Texto principal (blanco suave) */
+  --text-muted: #8892a4;   /* Texto secundario / descripciones */
+  --border: rgba(0,255,136,0.15);       /* Borde sutil con tono neón */
+  --card-bg: rgba(255,255,255,0.04);    /* Fondo de tarjetas semitransparente */
+  --card-border: rgba(255,255,255,0.08); /* Borde de tarjetas */
+  --radius: 16px;          /* Radio de borde estándar para tarjetas */
+  --shadow: 0 8px 32px rgba(0,0,0,0.4); /* Sombra estándar */
+}
+
+/* Scroll suave al hacer clic en los links del menú */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden; /* Evita scroll horizontal no deseado */
+}
+
+/* Contenedor centrado con ancho máximo */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* Clase utilitaria para texto en color neón */
+.neon { color: var(--neon); }
+
+/* Oculta elementos sin eliminarlos del DOM */
+.hidden { display: none !important; }
+
+/* =============================================
+   NAVBAR
+   Fijo en la parte superior, con efecto de
+   desenfoque (glassmorphism). Se oscurece más
+   al hacer scroll (clase .scrolled via JS).
+============================================= */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(5,13,26,0.85);
+  backdrop-filter: blur(20px); /* Efecto vidrio esmerilado */
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s;
+}
+#navbar.scrolled { background: rgba(5,13,26,0.98); }
+
+.nav-container {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 70px;
+}
+
+/* Logo con fuente Orbitron para look tecnológico */
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem; font-weight: 900;
+  color: #fff; text-decoration: none;
+  display: flex; align-items: center; gap: 8px;
+}
+.logo i { color: var(--neon); }
+.logo span { color: var(--neon); }
+
+.nav-links { list-style: none; display: flex; gap: 8px; }
+.nav-links a {
+  color: var(--text-muted); text-decoration: none;
+  padding: 8px 14px; border-radius: 8px;
+  font-size: 0.9rem; font-weight: 500;
+  transition: all 0.2s;
+}
+.nav-links a:hover { color: var(--neon); background: rgba(0,255,136,0.08); }
+
+/* Botón hamburguesa, solo visible en móvil */
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--text); border-radius: 2px; transition: all 0.3s;
+}
+
+/* =============================================
+   SECCIONES GENERALES
+   .section es el espaciado base.
+   .dark-section cambia el fondo para alternar
+   visualmente entre secciones.
+============================================= */
+.section { padding: 100px 0; }
+.dark-section { background: var(--bg2); }
+
+/* Encabezado centrado reutilizable en todas las secciones */
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-tag {
+  display: inline-block;
+  background: rgba(0,255,136,0.1);
+  color: var(--neon); border: 1px solid rgba(0,255,136,0.3);
+  padding: 6px 16px; border-radius: 20px;
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; margin-bottom: 16px;
+}
+/* clamp() hace el título responsivo sin media queries */
+.section-header h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 12px; }
+.section-header p { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+
+/* =============================================
+   BOTONES
+   Dos variantes: primario (relleno neón)
+   y outline (borde neón, fondo transparente).
+============================================= */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--neon), #00c96e);
+  color: #050d1a; font-weight: 700; font-size: 0.95rem;
+  padding: 14px 28px; border-radius: 10px; border: none;
+  cursor: pointer; text-decoration: none;
+  transition: all 0.3s; box-shadow: 0 4px 20px rgba(0,255,136,0.3);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,255,136,0.5); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--neon);
+  border: 1.5px solid var(--neon); font-weight: 600; font-size: 0.95rem;
+  padding: 13px 28px; border-radius: 10px;
+  cursor: pointer; text-decoration: none; transition: all 0.3s;
+}
+.btn-outline:hover { background: rgba(0,255,136,0.1); transform: translateY(-2px); }
+.btn-outline:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+/* Hace que el botón ocupe todo el ancho del contenedor */
+.full-width { width: 100%; justify-content: center; }
+
+/* =============================================
+   HERO / SECCIÓN INICIO
+   Ocupa toda la pantalla. Usa flexbox para
+   poner el texto a la izquierda y el globo
+   animado a la derecha.
+============================================= */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  position: relative; overflow: hidden; padding: 100px 24px 60px;
+  max-width: 1200px; margin: 0 auto;
+}
+
+/* Fondo con gradientes radiales decorativos (posición fija para efecto parallax) */
+.hero-bg {
+  position: fixed; inset: 0; z-index: -1;
+  background: radial-gradient(ellipse at 20% 50%, rgba(0,255,136,0.06) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(0,212,255,0.06) 0%, transparent 60%),
+              var(--bg);
+}
+
+.hero-content { flex: 1; max-width: 600px; }
+
+/* Etiqueta pequeña sobre el título principal */
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3);
+  color: var(--neon); padding: 8px 16px; border-radius: 20px;
+  font-size: 0.85rem; font-weight: 600; margin-bottom: 24px;
+  animation: fadeInUp 0.6s ease;
+}
+
+/* Título principal con tamaño fluido */
+.hero-content h1 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 800; line-height: 1.15; margin-bottom: 20px;
+  animation: fadeInUp 0.7s ease;
+}
+
+.hero-content p {
+  color: var(--text-muted); font-size: 1.1rem;
+  margin-bottom: 36px; animation: fadeInUp 0.8s ease;
+}
+
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; animation: fadeInUp 0.9s ease; }
+
+/* Estadísticas de impacto debajo de los botones */
+.hero-stats { display: flex; gap: 32px; flex-wrap: wrap; animation: fadeInUp 1s ease; }
+.stat { display: flex; flex-direction: column; }
+.stat-num {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem; font-weight: 700; color: var(--neon);
+}
+.stat span:last-child { font-size: 0.8rem; color: var(--text-muted); }
+
+/* =============================================
+   GLOBO ANIMADO (solo CSS, sin imágenes)
+   Tres anillos que giran a distintas velocidades
+   con puntos orbitando alrededor.
+============================================= */
+.hero-visual {
+  flex: 1; display: flex; justify-content: center; align-items: center;
+  animation: fadeIn 1.2s ease;
+}
+
+.cyber-globe {
+  position: relative; width: 320px; height: 320px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.globe-ring {
+  position: absolute; border-radius: 50%;
+  border: 1px solid rgba(0,255,136,0.2);
+  animation: spin linear infinite;
+}
+/* Cada anillo tiene velocidad y dirección diferente */
+.r1 { width: 320px; height: 320px; animation-duration: 20s; border-color: rgba(0,255,136,0.15); }
+.r2 { width: 240px; height: 240px; animation-duration: 15s; animation-direction: reverse; border-color: rgba(0,212,255,0.2); }
+.r3 { width: 160px; height: 160px; animation-duration: 10s; border-color: rgba(0,255,136,0.3); }
+
+/* Centro del globo con efecto de brillo */
+.globe-core {
+  width: 90px; height: 90px; border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0,255,136,0.2), rgba(0,212,255,0.2));
+  border: 2px solid var(--neon);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; color: var(--neon);
+  box-shadow: 0 0 40px rgba(0,255,136,0.3), inset 0 0 20px rgba(0,255,136,0.1);
+  z-index: 2;
+}
+
+/* Puntos que se mueven alrededor del globo */
+.orbit-dot {
+  position: absolute; width: 10px; height: 10px;
+  border-radius: 50%; background: var(--neon);
+  box-shadow: 0 0 10px var(--neon);
+}
+.d1 { top: 10px; left: 50%; animation: orbitY 20s linear infinite; }
+.d2 { top: 50%; right: 10px; animation: orbitX 15s linear infinite reverse; }
+.d3 { bottom: 10px; left: 30%; animation: orbitY 10s linear infinite reverse; }
+
+/* Keyframes de las animaciones del globo */
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes orbitY { 0%,100% { transform: translateY(0); } 50% { transform: translateY(300px); } }
+@keyframes orbitX { 0%,100% { transform: translateX(0); } 50% { transform: translateX(-300px); } }
+
+/* Animaciones de entrada usadas en varias secciones */
+@keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+/* =============================================
+   SECCIÓN: ¿QUÉ ES LA CIBERSEGURIDAD?
+   Grid de dos columnas: texto a la izquierda,
+   tarjetas informativas a la derecha.
+============================================= */
+.que-es-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.que-es-text p { color: var(--text-muted); margin-bottom: 16px; font-size: 1.05rem; }
+.que-es-text strong { color: var(--neon); }
+
+/* Los 3 pilares CIA mostrados como chips */
+.pillars { display: flex; gap: 16px; margin-top: 28px; flex-wrap: wrap; }
+.pillar {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(0,255,136,0.08); border: 1px solid rgba(0,255,136,0.2);
+  padding: 10px 16px; border-radius: 10px; font-size: 0.9rem; font-weight: 600;
+}
+.pillar i { color: var(--neon); }
+
+/* Grid 2x2 de tarjetas informativas */
+.que-es-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.info-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: var(--radius); padding: 20px;
+  transition: all 0.3s;
+}
+.info-card:hover { border-color: rgba(0,255,136,0.3); transform: translateY(-4px); }
+.info-card i { font-size: 1.5rem; color: var(--neon2); margin-bottom: 10px; display: block; }
+.info-card h4 { font-size: 0.95rem; margin-bottom: 6px; }
+.info-card p { font-size: 0.85rem; color: var(--text-muted); }
+
+/* =============================================
+   SECCIÓN: AMENAZAS COMUNES
+   Grid responsivo de tarjetas.
+   Cada tarjeta tiene una línea de color en la
+   parte superior que aparece al hacer hover.
+============================================= */
+.threats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+
+.threat-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: var(--radius); padding: 28px;
+  transition: all 0.3s; position: relative; overflow: hidden;
+}
+
+/* Línea de acento superior que se expande al hacer hover */
+.threat-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--neon), var(--neon2));
+  transform: scaleX(0); transition: transform 0.3s; transform-origin: left;
+}
+.threat-card:hover::before { transform: scaleX(1); }
+.threat-card:hover { border-color: rgba(0,255,136,0.25); transform: translateY(-4px); box-shadow: var(--shadow); }
+
+/* Ícono de cada amenaza con color propio */
+.threat-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; margin-bottom: 16px;
+}
+.phishing  { background: rgba(255,100,100,0.15); color: #ff6464; }
+.malware   { background: rgba(255,165,0,0.15);   color: #ffa500; }
+.ransomware{ background: rgba(255,50,50,0.15);   color: #ff3232; }
+.robo      { background: rgba(150,100,255,0.15); color: #9664ff; }
+.spyware   { background: rgba(0,212,255,0.15);   color: var(--neon2); }
+
+.threat-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+.threat-card > p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px; }
+
+/* Contenido expandible, oculto por defecto */
+.threat-details { display: none; margin-top: 16px; }
+.threat-details.open { display: block; animation: fadeInUp 0.3s ease; }
+
+.detail-block { margin-bottom: 16px; }
+.detail-block h4 { font-size: 0.85rem; color: var(--neon); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.detail-block p { font-size: 0.85rem; color: var(--text-muted); }
+.detail-block ul { list-style: none; }
+.detail-block ul li { font-size: 0.85rem; color: var(--text-muted); padding: 3px 0; }
+.detail-block ul li::before { content: '→ '; color: var(--neon); }
+
+/* Botón para expandir/colapsar el detalle de cada amenaza */
+.expand-btn {
+  background: none; border: 1px solid var(--card-border);
+  color: var(--text-muted); padding: 8px 16px; border-radius: 8px;
+  cursor: pointer; font-size: 0.85rem; transition: all 0.2s;
+  display: flex; align-items: center; gap: 6px;
+}
+.expand-btn:hover { border-color: var(--neon); color: var(--neon); }
+/* El ícono rota 180° cuando el detalle está abierto */
+.expand-btn i { transition: transform 0.3s; }
+.expand-btn.open i { transform: rotate(180deg); }
+
+/* =============================================
+   SECCIÓN: PROTECCIÓN DIGITAL
+   Grid de tarjetas numeradas.
+   El número grande es decorativo (muy opaco).
+============================================= */
+.protection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+
+.protection-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: var(--radius); padding: 28px; position: relative;
+  transition: all 0.3s; overflow: hidden;
+}
+.protection-card:hover { border-color: rgba(0,255,136,0.3); transform: translateY(-4px); }
+
+/* Número decorativo en la esquina superior derecha */
+.prot-num {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem; font-weight: 900;
+  color: rgba(0,255,136,0.08); /* Muy transparente, solo decorativo */
+  position: absolute; top: 16px; right: 20px; line-height: 1;
+}
+.prot-icon { font-size: 1.8rem; color: var(--neon); margin-bottom: 16px; }
+.protection-card h3 { font-size: 1rem; margin-bottom: 10px; }
+.protection-card p { font-size: 0.88rem; color: var(--text-muted); }
+
+/* Ejemplo visual de contraseña débil vs fuerte */
+.password-example { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+.bad, .good {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 12px; border-radius: 6px; font-size: 0.82rem; font-family: monospace;
+}
+.bad  { background: rgba(255,80,80,0.1); color: #ff8080; }
+.good { background: rgba(0,255,136,0.1); color: var(--neon); }
+
+/* =============================================
+   SECCIÓN: QUIZ INTERACTIVO
+   Las preguntas se muestran de una en una.
+   La barra de progreso avanza con cada respuesta.
+============================================= */
+.quiz-container {
+  max-width: 700px; margin: 0 auto;
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: 20px; padding: 40px;
+}
+
+/* Barra de progreso */
+.quiz-progress { margin-bottom: 32px; }
+.progress-bar {
+  height: 6px; background: rgba(255,255,255,0.08);
+  border-radius: 3px; margin-bottom: 10px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; background: linear-gradient(90deg, var(--neon), var(--neon2));
+  border-radius: 3px; transition: width 0.4s ease;
+  width: 16.66%; /* Empieza en 1/6 del total */
+}
+#progressText { font-size: 0.85rem; color: var(--text-muted); }
+
+/* Solo la pregunta activa es visible */
+.question { display: none; }
+.question.active { display: block; animation: fadeInUp 0.3s ease; }
+.question h3 { font-size: 1.15rem; margin-bottom: 24px; line-height: 1.5; }
+
+.options { display: flex; flex-direction: column; gap: 12px; }
+.option-btn {
+  background: rgba(255,255,255,0.04); border: 1.5px solid var(--card-border);
+  color: var(--text); padding: 14px 20px; border-radius: 10px;
+  text-align: left; cursor: pointer; font-size: 0.95rem; transition: all 0.2s;
+}
+.option-btn:hover:not(:disabled) { border-color: rgba(0,255,136,0.4); background: rgba(0,255,136,0.06); }
+/* Feedback visual inmediato al responder */
+.option-btn.correct { border-color: var(--neon); background: rgba(0,255,136,0.12); color: var(--neon); }
+.option-btn.wrong   { border-color: #ff5050; background: rgba(255,80,80,0.1); color: #ff8080; }
+.option-btn:disabled { cursor: not-allowed; }
+
+.quiz-nav { display: flex; justify-content: space-between; margin-top: 28px; gap: 12px; }
+
+/* Pantalla de resultado final */
+.quiz-result { text-align: center; padding: 20px 0; animation: fadeInUp 0.4s ease; }
+.result-icon { font-size: 4rem; margin-bottom: 16px; }
+.quiz-result h3 { font-size: 1.5rem; margin-bottom: 12px; }
+.quiz-result p { color: var(--text-muted); margin-bottom: 20px; }
+.result-score {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem; font-weight: 900; color: var(--neon); margin-bottom: 24px;
+}
+
+/* =============================================
+   SECCIÓN: TIPS Y NOVEDADES
+   Grid de 3 columnas. La tarjeta "featured"
+   ocupa todo el ancho (span 3).
+============================================= */
+.tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.tip-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: var(--radius); padding: 28px; transition: all 0.3s;
+}
+.tip-card:hover { border-color: rgba(0,255,136,0.25); transform: translateY(-4px); }
+
+/* Tarjeta destacada que ocupa todo el ancho del grid */
+.tip-card.featured {
+  grid-column: span 3;
+  background: linear-gradient(135deg, rgba(0,255,136,0.08), rgba(0,212,255,0.05));
+  border-color: rgba(0,255,136,0.25);
+  display: flex; flex-direction: column;
+}
+
+.tip-tag {
+  display: inline-block; background: rgba(0,255,136,0.1);
+  color: var(--neon); border: 1px solid rgba(0,255,136,0.25);
+  padding: 4px 12px; border-radius: 20px; font-size: 0.75rem;
+  font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+  margin-bottom: 14px; width: fit-content;
+}
+.tip-icon { font-size: 1.8rem; color: var(--neon2); margin-bottom: 12px; display: block; }
+.tip-card h3 { font-size: 1rem; margin-bottom: 10px; }
+.tip-card p { font-size: 0.88rem; color: var(--text-muted); }
+
+/* =============================================
+   SECCIÓN: CONTACTO
+   Dos columnas: info a la izquierda,
+   formulario a la derecha.
+============================================= */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: start; }
+
+.contact-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 28px; }
+.contact-item i { font-size: 1.3rem; color: var(--neon); margin-top: 2px; }
+.contact-item h4 { font-size: 0.9rem; margin-bottom: 4px; }
+.contact-item p { font-size: 0.88rem; color: var(--text-muted); }
+
+/* Iconos de redes sociales */
+.social-links { display: flex; gap: 12px; margin-top: 8px; }
+.social-links a {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted); text-decoration: none; font-size: 1rem; transition: all 0.2s;
+}
+.social-links a:hover { border-color: var(--neon); color: var(--neon); background: rgba(0,255,136,0.08); }
+
+/* Campos del formulario con estilo oscuro */
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+.form-group input, .form-group textarea, .form-group select {
+  background: rgba(255,255,255,0.04); border: 1.5px solid var(--card-border);
+  color: var(--text); padding: 12px 16px; border-radius: 10px;
+  font-size: 0.95rem; font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s; outline: none;
+}
+/* Borde neón al enfocar el campo */
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+  border-color: rgba(0,255,136,0.5);
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-muted); }
+.form-group select option { background: var(--bg2); }
+.form-group textarea { resize: vertical; min-height: 100px; }
+
+/* Mensaje de éxito tras enviar el formulario */
+.form-success {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3);
+  color: var(--neon); padding: 14px 18px; border-radius: 10px; font-size: 0.9rem;
+}
+
+/* =============================================
+   FOOTER
+   Cuatro columnas con logo, links y newsletter.
+============================================= */
+footer { background: var(--bg); border-top: 1px solid var(--border); padding: 60px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 48px; }
+.footer-brand .logo { margin-bottom: 16px; }
+.footer-brand p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px; }
+.footer-links h4 { font-size: 0.9rem; margin-bottom: 16px; color: var(--text); }
+.footer-links ul { list-style: none; }
+.footer-links ul li { margin-bottom: 10px; }
+.footer-links ul li a { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+.footer-links ul li a:hover { color: var(--neon); }
+.footer-newsletter h4 { font-size: 0.9rem; margin-bottom: 10px; }
+.footer-newsletter p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px; }
+.newsletter-form { display: flex; gap: 8px; }
+.newsletter-form input {
+  flex: 1; background: var(--card-bg); border: 1px solid var(--card-border);
+  color: var(--text); padding: 10px 14px; border-radius: 8px; font-size: 0.88rem; outline: none;
+}
+.newsletter-form input:focus { border-color: rgba(0,255,136,0.4); }
+.newsletter-form .btn-primary { padding: 10px 18px; font-size: 0.85rem; }
+
+/* Barra inferior del footer */
+.footer-bottom {
+  border-top: 1px solid var(--border); padding: 20px 0;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.85rem; color: var(--text-muted); flex-wrap: wrap; gap: 8px;
+}
+
+/* =============================================
+   TOAST (notificación flotante)
+   Aparece en la esquina inferior derecha
+   para dar feedback rápido al usuario.
+============================================= */
+.toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+  background: var(--bg3); border: 1px solid var(--neon);
+  color: var(--text); padding: 14px 20px; border-radius: 10px;
+  font-size: 0.9rem; box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  animation: fadeInUp 0.3s ease;
+}
+
+/* =============================================
+   RESPONSIVE
+   Breakpoints para tablet (1024px),
+   móvil (768px) y móvil pequeño (480px).
+============================================= */
+@media (max-width: 1024px) {
+  .que-es-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .tips-grid { grid-template-columns: 1fr 1fr; }
+  .tip-card.featured { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+  /* El menú se oculta y se muestra con el botón hamburguesa */
+  .nav-links {
+    display: none; flex-direction: column;
+    position: absolute; top: 70px; left: 0; right: 0;
+    background: rgba(5,13,26,0.98); padding: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links.open { display: flex; }
+  .hamburger { display: flex; }
+
+  /* Hero en columna en móvil */
+  .hero { flex-direction: column; text-align: center; padding-top: 120px; }
+  .hero-btns { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .hero-visual { margin-top: 40px; }
+
+  /* Globo más pequeño en móvil */
+  .cyber-globe { width: 220px; height: 220px; }
+  .r1 { width: 220px; height: 220px; }
+  .r2 { width: 160px; height: 160px; }
+  .r3 { width: 100px; height: 100px; }
+  .globe-core { width: 60px; height: 60px; font-size: 1.4rem; }
+
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .tips-grid { grid-template-columns: 1fr; }
+  .tip-card.featured { grid-column: span 1; }
+  .que-es-cards { grid-template-columns: 1fr; }
+  .quiz-container { padding: 24px; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 70px 0; }
+  .hero-stats { gap: 20px; }
+  .protection-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
