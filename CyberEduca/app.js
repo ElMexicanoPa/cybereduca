@@ -219,18 +219,30 @@ function submitForm(e) {
   btn.textContent = 'Enviando...';
   btn.disabled = true;
 
-  // Simular tiempo de respuesta del servidor
-  setTimeout(() => {
-    document.getElementById('formSuccess').classList.remove('hidden');
-    e.target.reset(); // Limpiar el formulario
+    // Enviar los datos reales a Formspree
+  const formData = new FormData(e.target);
 
-    // Restaurar el botón
+  fetch('https://formspree.io/f/maqkrqay', {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(response => {
+    if (response.ok) {
+      // Éxito: mostrar confirmación y limpiar el formulario
+      document.getElementById('formSuccess').classList.remove('hidden');
+      e.target.reset();
+      setTimeout(() => document.getElementById('formSuccess').classList.add('hidden'), 5000);
+    } else {
+      showToast('Error al enviar. Intenta de nuevo.');
+    }
+  })
+  .catch(() => showToast('Error de conexión. Intenta de nuevo.'))
+  .finally(() => {
+    // Restaurar el botón siempre
     btn.innerHTML = 'Enviar mensaje <i class="fa-solid fa-paper-plane"></i>';
     btn.disabled = false;
-
-    // Ocultar el mensaje de éxito después de 5 segundos
-    setTimeout(() => document.getElementById('formSuccess').classList.add('hidden'), 5000);
-  }, 1200);
+  });
 }
 
 // =============================================
